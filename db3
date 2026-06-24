@@ -1,0 +1,28 @@
+mongosh
+test> use mydb
+switched to db mydb
+mydb> db
+mydb
+mydb> show collections
+
+db.createCollection("participant")
+
+db.participant.insertMany([{name:"n1",age:28,grade:"A"},
+{name:"n2",age:22,grade:"B"},{name:"n3",age:28,grade:"C"},
+{name:"n4",age:25,grade:"D"},{name:"n5",age:18,grade:"A"}])
+
+db.participant.find()
+
+db.participant.find({$and:[{name:"n1"},{age:28}]})
+
+db.participant.find({$or:[{name:"n1"},{age:28}]})
+
+db.participant.find({$nor:[{name:"n1"},{age:28}]})
+
+Q. write a query that matches all documents where the age field is not equal to 18
+
+db.participant.find({age:{$not:{$eq:18}}})
+
+Q. Write a query that returns all the documents where the age field is 22 or more 
+
+db.participant.find({age:{$not:{$lt:22}}})

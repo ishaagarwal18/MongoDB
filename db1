@@ -1,0 +1,24 @@
+create a named employee having fields name,age,years_of_experience and rating 
+1. insert 5 documents in collection .
+2. arrange all the records in ascending order by age.
+3. Show the name of employee who is the oldest among all employes
+4. find the only name of employee having 10 ratings
+5. delete the record of the employee if the years_of_experience is 2.
+
+ANSWER:
+
+db.createCollection("employee")
+
+1. db.employee.insertMany([{name:"A",age:21,years:5,r:6},
+{name:"B",age:22,years:4,r:7},{name:"C",age:20,years:3,r:9},
+{name:"D",age:35,years:10,r:10},{name:"E",age:27,years:5,r:6}])
+
+->db.employee.find()
+
+2. db.employee.find().sort({age:1})
+
+3. db.employee.find().sort({age:-1}).limit(1)
+
+4. db.employee.find({r:10})
+
+5. db.employee.deleteOne({years:2})
