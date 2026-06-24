@@ -1,0 +1,7 @@
+db.createCollection("s")
+db.s.insertMany([{name:"Isha",age:20,std:1,per:89},{name:"Mehrin",age:20,std:1,per:94},{name:"Nitya",age:21,std:2,per:67},{name:"Rishita",age:22,std:3,per:90}])
+db.s.find({age:{$gte:21}})
+db.s.updateMany({},{$inc:{std:1}})
+db.s.find().sort({age:-1})
+db.s.find().sort({age:-1}).limit(1)
+db.s.deleteOne({std:3})

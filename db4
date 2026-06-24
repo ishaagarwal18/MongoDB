@@ -1,0 +1,19 @@
+db.createCollection("table1")
+
+db.table1.insertMany([{name:"x",std:1},{name:"y",std:2},{name:"z",std:3},{name:"w",std:4}])
+
+db.table1.updateMany({},{$inc:{std:1}})
+
+db.table1.updateOne({},{$inc:{std:5}})
+
+db.table1.updateOne({},{$inc:{std:-2}})
+
+db.table1.find()
+
+Q. multiply std by 2
+
+db.table1.updateMany({},{$mul:{std:2}})
+
+Q. inc salary by 10% for all documents
+
+db.table1.updateMany({},{$mul:{salary:1.1}})

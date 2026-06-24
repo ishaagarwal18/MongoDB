@@ -26,3 +26,7 @@ db.participant.find({age:{$not:{$eq:18}}})
 Q. Write a query that returns all the documents where the age field is 22 or more 
 
 db.participant.find({age:{$not:{$lt:22}}})
+
+Q. write a query that matches all documents where the grade is not in the set of A,B
+
+db.participant.find({grade:{$not:{$in:["A","B"]}}})

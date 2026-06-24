@@ -1,0 +1,28 @@
+db.createCollection("emp")
+
+db.emp.insertMany([ { id: 1, name: "Amit Patel", age: 29, position: "Backend Developer", salary: 95000 }, 
+{ id: 2, name: "Priya Sharma", age: 34, position: "Data Scientist", salary: 120000 }, 
+{ id: 3, name: "Rahul Verma", age: 26, position: "Frontend Engineer", salary: 85000 }, 
+{ id: 4, name: "Sneha Gupta", age: 41, position: "Project Manager", salary: 135000 },
+{ id: 5, name: "Vikram Singh", age: 38, position: "DevOps Engineer", salary: 115000 }, 
+{ id: 6, name: "Anjali Reddy", age: 31, position: "UI/UX Designer", salary: 90000 },
+{ id: 7, name: "Rohan Mehta", age: 24, position: "QA Engineer", salary: 65000 }]);
+db.emp.find()
+
+db.emp.find({position:"QA Engineer"})
+
+db.emp.find({ age: { $gte: 26, $lte: 34 } })
+
+db.emp.find().sort({salary:-1}).limit(1)
+
+db.emp.find({salary:{$gt:85000}})
+
+db.emp.find({ $and: [{ $or: [ { position: "Frontend Engineer" }, 
+    { position: "UI/UX Designer" } ] },{ age: { $gte: 26 } }]})
+
+
+db.emp.updateMany({salary:{$lt:80000}},{$mul:{salary:1.1}})
+
+db.emp.deleteMany({age:{$gt:35}})
+
+db.emp.updateMany({position:"UI/UX Designer"},{$mul:{salary:1.05}})
