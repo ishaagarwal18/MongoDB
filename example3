@@ -1,0 +1,23 @@
+db.createCollection("products")
+db.products.insertMany([{ id: 101, brand: "Samsung", price: 45000, cat: "TV" },
+    { id: 102, brand: "LG", price: 32000, cat: "Washing Machine" },
+    { id: 103, brand: "Apple", price: 79000, cat: "Mobile" },
+    { id: 104, brand: "Sony", price: 65000, cat: "TV" },
+    { id: 105, brand: "OnePlus", price: 38000, cat: "Mobile" },
+    { id: 106, brand: "IFB", price: 28500, cat: "Washing Machine" },  
+    { id: 107, brand: "Xiaomi", price: 15000, cat: "Mobile" },
+    { id: 108, brand: "Whirlpool", price: 22000, cat: "Washing Machine" },
+    { id: 109, brand: "TCL", price: 27000, cat: "TV" },
+    { id: 110, brand: "Google", price: 69000, cat: "Mobile" }]);
+
+db.products.find()
+
+db.products.find({cat:"Mobile"},{brand:1,price:1})
+
+db.products.updateMany({brand:"Samsung"},{$inc:{price:1000}})
+
+db.products.find({$or:[{brand:"Sony"},{brand:"OnePlus"}]},{price:1})
+
+db.products.find({ price: { $gte: 65000, $lte: 79000 } })
+
+db.products.find({ price: { $gte: 65000, $lte: 79000 } },{brand:1,cat:1})
