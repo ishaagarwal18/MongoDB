@@ -1,0 +1,91 @@
+db.customers.insertMany([{
+    _id: 1,
+    customername: "Aarav Sharma",
+    city: "Ahmedabad",
+    state: "Gujarat",
+    membership: "Gold",
+    totalspend: 45000
+  },
+  {
+    _id: 2,
+    customername: "Priya Patel",
+    city: "Surat",
+    state: "Gujarat",
+    membership: "Silver",
+    totalspend: 22000
+  },
+  {
+    _id: 3,
+    customername: "Rohan Mehta",
+    city: "Mumbai",
+    state: "Maharashtra",
+    membership: "Platinum",
+    totalspend: 78000
+  },
+  {
+    _id: 4,
+    customername: "Sneha Verma",
+    city: "Jaipur",
+    state: "Rajasthan",
+    membership: "Gold",
+    totalspend: 39000
+  },
+  {
+    _id: 5,
+    customername: "Vikram Singh",
+    city: "Delhi",
+    state: "Delhi",
+    membership: "Bronze",
+    totalspend: 12000
+  },
+  {
+    _id: 6,
+    customername: "Neha Joshi",
+    city: "Pune",
+    state: "Maharashtra",
+    membership: "Silver",
+    totalspend: 28000
+  },
+  {
+    _id: 7,
+    customername: "Karan Shah",
+    city: "Vadodara",
+    state: "Gujarat",
+    membership: "Gold",
+    totalspend: 51000
+  },
+  {
+    _id: 8,
+    customername: "Ananya Roy",
+    city: "Kolkata",
+    state: "West Bengal",
+    membership: "Bronze",
+    totalspend: 15000
+  },
+  {
+    _id: 9,
+    customername: "Rahul Kapoor",
+    city: "Chandigarh",
+    state: "Punjab",
+    membership: "Platinum",
+    totalspend: 91000
+  },
+  {
+    _id: 10,
+    customername: "Meera Nair",
+    city: "Kochi",
+    state: "Kerala",
+    membership: "Gold",
+    totalspend: 47000
+  }
+]);
+
+Question:
+1. find customers who spend more than 500000
+db.customers.aggregate([{$match:{totalspend:{$gt:50000}}}])
+
+2. Count customers in each membership
+db.customers.aggregate([{$group:{_id:"$membership",count:{$sum:1}}}])
+
+3. Total spending by state
+db.customers.aggregate([{$group:{_id:"$state",totalspending:{$sum:"$totalspend"}}}])

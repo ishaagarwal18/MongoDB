@@ -1,0 +1,13 @@
+Q. using the agr perform the following task
+1. select students whose marks>=80 
+2. group the selected students by city
+3. calculate the total marks obtained by students in each city
+4. sort the result in dec order of total marks. 
+5. display only the city name and total marks.
+
+db.studentdata.aggregate([{$match:{marks:{$gte:80}}},
+
+{$group:{_id:"$city",totalmarks:{$sum:"$marks"}}},
+
+{$sort:{totalmarks:-1}},{$project:{totalmarks:1,city:"$id"}}])
+

@@ -11,6 +11,3 @@ db.studentdata.aggregate([{$group:{_id:"$city",totalstudents:{$sum:1}}}])
 db.studentdata.aggregate([{$group:{_id:"$city",averagemakrs:{$avg:"$marks"}}}])
 
 db.studentdata.aggregate([{$project:{_id:0,name:1}}])
-
-Q. using the agr perform the following task
-1. select students whose marks 
