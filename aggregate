@@ -1,0 +1,16 @@
+db.studentdata.insertMany([{name:"Niya",city:"Ahme",marks:85},
+{name:"Riya",city:"Surat",makrs:70},{name:"Siya",city:"Ahme",marks:90},
+{name:"Priya",city:"Surat",marks:80}])
+
+db.studentdata.find()
+
+db.studentdata.aggregate([{$match:{city:"Surat"}}])
+
+db.studentdata.aggregate([{$group:{_id:"$city",totalstudents:{$sum:1}}}])
+
+db.studentdata.aggregate([{$group:{_id:"$city",averagemakrs:{$avg:"$marks"}}}])
+
+db.studentdata.aggregate([{$project:{_id:0,name:1}}])
+
+Q. using the agr perform the following task
+1. select students whose marks 
