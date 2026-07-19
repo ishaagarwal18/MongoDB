@@ -11,7 +11,7 @@ db.emp.find()
 
 db.emp.find({position:"QA Engineer"})
 
-db.emp.find({ age: { $gte: 26, $lte: 34 } })
+db.emp.find({age:{$gte:26,$lte:34}})
 
 db.emp.find().sort({salary:-1}).limit(1)
 

@@ -6,9 +6,11 @@ db.ri.insertMany([{id:2,Person:"R",product:"Mobile",category:"electronic",amount
 {id:7,Person:"R",product:"microwave",category:"electronic",amount:12000}])
 
 1. 
-db.ri.aggregate([{$group:{_id:"$category",avgamount:{$avg:"$amount"}}},{$sort:{avgamount:-1}},{$project:{avgamount:1,category:"$id"}}])
-
+db.ri.aggregate([{$group:{_id:"$category",avgamount:{$avg:"$amount"}}},
+    {$sort:{avgamount:-1}},{$project:{avgamount:1,category:"$id"}}])
 
 2. find the highest order amount for each category. sort the result in dec order of hightest order amount 
 and display only the category and highest order amount
-db.ri.aggregate([{$group:{_id:"$category",maxamount:{$max:"$amount"}}},{$sort:{maxamount:-1}},{$project:{maxamount:1,category:"$id"}}])
+db.ri.aggregate([{$group:{_id:"$category",maxamount:{$max:"$amount"}}},
+    {$sort:{maxamount:-1}},{$project:{maxamount:1,category:"$id"}}])
+
