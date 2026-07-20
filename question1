@@ -91,7 +91,8 @@ db.customers.aggregate([{$group:{_id:"$membership",count:{$sum:1}}}])
 db.customers.aggregate([{$group:{_id:"$state",totalspending:{$sum:"$totalspend"}}}])
 
 // 4. sort by totalspending by dec
-db.customers.aggregate([{$group:{_id:"$state",totalspending:{$sum:"$totalspend"}}},{$sort:{totalspending:-1}}])
+db.customers.aggregate([{$group:{_id:"$state",totalspending:{$sum:"$totalspend"}}},
+  {$sort:{totalspending:-1}}])
 
 // 5. gold member -> only name
 db.customers.aggregate([{$match:{membership:"Gold"}},{$project:{customername:1}}])
@@ -100,4 +101,5 @@ db.customers.aggregate([{$match:{membership:"Gold"}},{$project:{customername:1}}
 db.customers.aggregate([{$match:{state:"Gujarat"}},{$group:{_id:"$state",totalsales:{$sum:"$totalspend"}}}])
 
 // 7. gold -> total spend by state -> sort (dec)(totalspend) -> project(state,totalspend)
-db.customers.aggregate([{$match:{membership:"Gold"}},{$group:{_id:"$state",totals:{$sum:"$totalspend"}}},{$sort:{totals:-1}},{$project:{state:"$id",totals:1}}])
+db.customers.aggregate([{$match:{membership:"Gold"}},{$group:{_id:"$state",totals:{$sum:"$totalspend"}}},
+  {$sort:{totals:-1}},{$project:{state:"$id",totals:1}}])
