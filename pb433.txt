@@ -5,5 +5,14 @@ Create a collection name Student. Having fields name, age, std, percentage.
 4) arrange all the record of descending order of age
 5)show all the name of student who is the oldest student of all records.
 
+db.createCollection("student")
 
-1. 
+1. db.student.insertMany([{name:"isha",age:12,std:1,percentage:90},......])
+
+2. db.student.find({age:{$gt:5}},{name:1,_id:0})
+
+3. db.student.updateMany({},{$inc:{std:1}})
+
+4. db.student.find().sort({age:-1})
+
+5. db.student.find().sort({age:-1}).limit(1)
