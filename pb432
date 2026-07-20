@@ -6,3 +6,8 @@ percentage. Insert 5 to 10 random documents in collection.
 4.Show the name of student who is the oldest student among all students.
 5.Delete the record of the student if standard is 12.
 
+1. db.student.find({age:{$gt:7}})
+2. db.student.updateMany({},{$inc:{standard:1}})
+3. db.student.find().sort({age:1})
+4. db.student.find().sort({age:-1}).limit(1)
+5. db.student.deleteMany({standard:{$eq:12}})
